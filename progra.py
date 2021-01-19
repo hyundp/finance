@@ -8,7 +8,7 @@ from datetime import datetime
 from datetime import timedelta
 import pandas as pd
 
-slack = Slacker('xoxb-1472760183958-1479779745491-8x9UiIVNpIJ50RT9WUVYpDre')
+slack = Slacker('slack code')
 def dbgout(message):
     """출력"""
     print(datetime.now().strftime('[%m/%d %H:%M:%S]'), message)
