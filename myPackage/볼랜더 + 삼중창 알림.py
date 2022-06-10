@@ -37,7 +37,8 @@ def dbgout_buy(message):
     post_message(myToken,"#buy", strbuf)
 
 
-print("start")
+dbgout_buy("-------------------------------------start-------------------------------------")
+dbgout_sell("-------------------------------------start-------------------------------------")
 
 a = ana2.MarketDB()
 b = analyzer.MarketDB()
@@ -74,6 +75,7 @@ for d in dk:
     dj = dj.assign(fast_k=fast_k, slow_d=slow_d).dropna()
     dj = dj.dropna()
 
+    # 전략에 맞는 종목 찾기
     for i in range(1, len(dj.close)):
         end_date = datetime.today().strftime('%Y-%m-%d')
         six_month_ago = datetime.today() - timedelta(days=180)
@@ -88,11 +90,11 @@ for d in dk:
         # if datetime.today().weekday() == 6:
         #     end_date = datetime.today() - timedelta(days=2)
         #     end_date = end_date.strftime('%Y-%m-%d')
-        if dj.PB.values[i] < 0.05 and dj.IIP21.values[i] > 0 and dj.volume[i] > 70000 and \
-            dj.ema130.values[i - 1] < dj.ema130.values[i] and dj.slow_d.values[i - 1] >= 10 and dj.slow_d.values[i] < 20:
+        if dj.PB.values[i] < 0.03 and dj.IIP21.values[i] > 0 and dj.volume[i] > 100000 and \
+            dj.ema130.values[i - 1] < dj.ema130.values[i] and dj.slow_d.values[i - 1] >= 10 and dj.slow_d.values[i] < 10:
             dbgout_buy("`[매수] 볼랜더 + 삼중창" + ' : ' + x + "`")
-        elif dj.PB.values[i] > 0.95 and dj.IIP21.values[i] < 0 and dj.volume[i] > 70000 and \
-            dj.ema130.values[i - 1] > dj.ema130.values[i] and dj.slow_d.values[i - 1] <= 90 and dj.slow_d.values[i] > 80:
+        elif dj.PB.values[i] > 0.90 and dj.IIP21.values[i] < 0 and dj.volume[i] > 50000 and \
+            dj.ema130.values[i - 1] > dj.ema130.values[i] and dj.slow_d.values[i - 1] <= 80 and dj.slow_d.values[i] > 80:
             dbgout_sell("`[매도] 볼랜더 + 삼중창" + ' : ' + x + "`")
 
 # for f in dk:
@@ -133,4 +135,5 @@ for d in dk:
         #         dj.slow_d.values[i - 1] <= 80 and dj.slow_d.values[i] > 80 and dj.volume[i] > 70000:
         #     dbgout("`삼중창매도" + ' : ' + x + "`")
 
-print("done")
+dbgout_buy("-------------------------------------done-------------------------------------")
+dbgout_sell("-------------------------------------done-------------------------------------")
