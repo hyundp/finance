@@ -36,6 +36,7 @@ def dbgout_buy(message):
     strbuf = datetime.now().strftime('[%m/%d %H:%M:%S] ') + message
     post_message(myToken,"#buy", strbuf)
 
+# 근처 6개월의 지표로는 아무것도 설명할 수 없다. 반복되는 패턴을 찾고, 그 패턴에 맞춰 투자해야 한다.
 
 dbgout_buy("-------------------------------------start-------------------------------------")
 dbgout_sell("-------------------------------------start-------------------------------------")
