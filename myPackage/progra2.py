@@ -6,7 +6,7 @@ import ana2
 import analyzer
 from slacker import Slacker
 
-slack = Slacker('xoxb-3406314155365-3433339692400-R5cTypQNNwvuZodBILiljefB')
+slack = Slacker('')
 
 
 def dbgout(message):
