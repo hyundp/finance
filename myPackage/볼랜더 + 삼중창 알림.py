@@ -7,7 +7,7 @@ from slacker import Slacker
 import ana2
 import analyzer
 
-# slack = Slacker('')
+# slack = Slacker(' ')
 
 
 # def dbgout(message):

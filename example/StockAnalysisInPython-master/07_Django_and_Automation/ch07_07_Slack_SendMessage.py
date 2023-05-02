@@ -1,7 +1,7 @@
 
 from slacker import Slacker
 
-slack = Slacker('')
+slack = Slacker(' ')
 
 markdown_text = '''
 This message is plain.

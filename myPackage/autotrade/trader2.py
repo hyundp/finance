@@ -7,7 +7,7 @@ import pandas as pd
 import win32com.client
 from slacker import Slacker
 
-slack = Slacker('')
+slack = Slacker(' ')
 
 
 def dbgout(message):
